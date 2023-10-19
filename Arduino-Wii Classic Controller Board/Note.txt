@@ -1,0 +1,4 @@
+Copy only one of these, into the RetroArch\autoconfig\dinput folder.
+
+The [ANALOGUE] file within Retroarch treats the L trigger as L2, and the R trigger, as R2, with button 8 as L3 and button 9 as R3.
+

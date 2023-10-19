@@ -1,0 +1,167 @@
+# This is a demonstration config file for the control panel tester
+#
+# Comments (begining with a # character) and blank lines are
+# ignored in this file.
+#
+# The first configuration item in this file should be:
+#
+#  PANEL WIDTH HEIGHT BKCOLOUR "Title string"
+#
+#        Where
+#           WIDTH and HEIGHT are an integer value (pixels)
+#
+#           BKCOLOUR should be one of:
+#
+#                 Colour options (see below) or
+#
+#                 FADE(DIR,START_R,START_G,START_B,END_R,END_G,END_B)
+#
+#                 Where
+#                    BTN_FACE = Use system default button face colour
+#                    RGB = Red, Green, and Blue colour value (each 0-255)
+#                    FADE = Gradient from start to end colours DIR (1-8) is
+#
+#                             +8----1----2+
+#                             | \   |   / |
+#                             |     v     |
+#                             |           |
+#                             7-->     <--3
+#                             |           |
+#                             |     ^     |
+#                             | /   |   \ |
+#                             +6----5----4+
+#
+#           "Title string" is the title for the test panel window and
+#           must be a quoted string.
+#
+#
+# Other items that can be configured are
+# ======================================
+#
+#  HELD-INFO COLOUR X Y
+#           Text object that shows a number of keys currently held down.
+#           COLOUR is foreground colour of text (see below for values).
+#           Object size 75x11
+#
+#  KEY-INFO COLOUR X Y
+#           Text object that shows the last key held or released
+#           shows keyboard scan code and text label.
+#           COLOUR is foreground colour of text (see below for values).
+#           Object size 200x11
+#
+#  TRACK X Y COLOUR MOUSE#
+#           Trackball object
+#           MOUSE# indicates mouse number for trackball eg MOUSE1 MOUSE2
+#           MOUSE0 is the system default mouse (i.e. all mice combined)
+#           Object size 60x60
+#
+#  SPIN X Y MOUSE# AXIS
+#           Spinner object AXIS is either X or Y and indicates
+#           the mouse axis to use for this spinner.
+#           Object size 34x34
+#
+#  JOY-4 X Y COLOUR KEY-UP KEY-DOWN KEY-LEFT KEY-RIGHT
+#           4 way joystick object (valid key codes are listed below)
+#           Object size 42x42
+#
+#  JOY-8 X Y COLOUR KEY-UP KEY-DOWN KEY-LEFT KEY-RIGHT
+#           8 way joystick object (valid key codes are listed below)
+#           Object size 42x42
+#
+#  BUTTON X Y COLOUR KEY-PRESS
+#           Standard button (valid codes for key are listed below)
+#           Object size 23x23
+#
+#  BTN1 X Y COLOUR KEY-PRESS
+#           As per BUTTON above but with 1 player image on button
+#           Object size 23x23
+#
+#  BTN2 X Y COLOUR KEY-PRESS
+#           As per BUTTON above but with 2 player image on button
+#           Object size 23x23
+#
+#  BTN3 X Y COLOUR KEY-PRESS
+#           As per BUTTON above but with 3 player image on button
+#           Object size 23x23
+#
+#  BTN4 X Y COLOUR KEY-PRESS
+#           As per BUTTON above but with 4 player image on button
+#           Object size 23x23
+#
+#  LITBTN X Y PIN COLOUR KEY-PRESS
+#           Backlit button with PIN = parallel port for light output
+#           test program will assert pin high (not implemented yet)
+#           when button is held down
+#           Object size 29x21
+#
+# COLOUR options
+# ==============
+#
+#  Can be one of the following:
+#
+#     Token      RGB value
+#     --------   -----------
+#     BLACK        0,  0,  0
+#     WHITE      255,255,255
+#     RED        160,  0,  0
+#     GREEN        0,200,  0
+#     BLUE         0,  0,220
+#     YELLOW     220,220,  0
+#     PURPLE     170,  0,170
+#     CYAN         0,220,220
+#     RGB(X,Y,Z)   X,  Y,  Z
+#
+#     BTN-FACE   System button face colour
+#
+#
+# VALID KEY-PRESS CODES
+# =========-===========
+#
+#   MOUSEx-v  (x = mouse number v = button number)
+#   KEY-A     thru KEY-Z
+#   KEY-0     thru KEY-9
+#   KEY-F1    thru KEY-F12
+#   KEY-NUM-0 thru KEY-NUM-9
+#
+#   KEY-BACKSLASH     KEY-END            KEY-NUM-ASTERISK   KEY-PRINT-SCRN
+#   KEY-BACKSPACE     KEY-ENTER          KEY-NUM-ENTER      KEY-QUOTE
+#   KEY-CAPS-LOCK     KEY-EQUALS         KEY-NUM-HYPHEN     KEY-RIGHT-ALT
+#   KEY-CLOSEBRACE    KEY-ESC            KEY-NUM-LOCK       KEY-RIGHT-CONTROL
+#   KEY-COLON         KEY-HOME           KEY-NUM-PERIOD     KEY-RIGHT-SHIFT
+#   KEY-COMMA         KEY-INSERT         KEY-NUM-PLUS       KEY-RIGHT-WINDOW
+#   KEY-CURSOR-DOWN   KEY-LEFT-ALT       KEY-NUM-SLASH      KEY-SCROLL-LOCK
+#   KEY-CURSOR-LEFT   KEY-LEFT-CONTROL   KEY-OPENBRACE      KEY-SLASH
+#   KEY-CURSOR-RIGHT  KEY-LEFT-SHIFT     KEY-PAGE-DOWN      KEY-SPACE
+#   KEY-CURSOR-UP     KEY-LEFT-WINDOW    KEY-PAGE-UP        KEY-TAB
+#   KEY-DASH          KEY-MENU           KEY-PAUSE          KEY-TILDE
+#   KEY-DELETE        KEY-NUM-/          KEY-PERIOD
+#
+PANEL 360 175 RGB(76,80,82) "X-Arcade"
+HELD-INFO  10 132 RGB(220,220,220)
+KEY-INFO  100 132 RGB(220,220,220)
+
+# Player 1
+JOY-8    7  43   BLACK KEY-NUM-8 KEY-NUM-2 KEY-NUM-4 KEY-NUM-6
+BUTTON  68  53   BLACK KEY-LEFT-CONTROL
+BUTTON  95  53   BLACK KEY-LEFT-ALT
+BUTTON 123  53   BLACK KEY-SPACE
+BUTTON  68  79   BLACK KEY-LEFT-SHIFT
+BUTTON  95  79   BLACK KEY-Z
+BUTTON 123  79   BLACK KEY-X
+BUTTON  46 102   BLACK KEY-C
+BUTTON  81 102   BLACK KEY-5
+BTN1   123  20   WHITE KEY-1
+BUTTON   5   5   WHITE KEY-3
+
+# Player 2
+JOY-8  208  43   BLACK KEY-R KEY-F KEY-D KEY-G
+BUTTON 269  53   BLACK KEY-A
+BUTTON 296  53   BLACK KEY-S
+BUTTON 324  53   BLACK KEY-Q
+BUTTON 269  79   BLACK KEY-W
+BUTTON 296  79   BLACK KEY-E
+BUTTON 324  79   BLACK KEY-OPENBRACE
+BUTTON 247 102   BLACK KEY-CLOSEBRACE
+BUTTON 282 103   BLACK KEY-6
+BTN2   151  20   WHITE KEY-2
+BUTTON 325   5   WHITE KEY-4
